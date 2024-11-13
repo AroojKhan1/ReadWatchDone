@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<head>
+    <style>
+        .container-center{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            
+        }
+        .err{
+                color: red;
+                font-weight: bold;
+            }
+    </style>
+</head>
+    <body>
+        <div class="container-center">
+        <h1>Progress Tracker</h1>
+        <h2> Login</h2>
+     
+        <br>
+        <br>
+        <h6>Please login using your name and password.</h5>
+        <form method="POST" action="/login">
+            <label for = "username">Username</label>
+            <input type="text" id = "username" name="username" required>
+            <br>
+            <label for ="password">
+                Password
+            </label>
+       
+            <input type="password" id="password" name="password" required >
+            <br>
+            <input type ="submit" value="login">
+
+        </form>
+        <p class="err">{{error}}</p>
+        <p>dont have an account?
+        <a href="/signup">signup now!</a>
+    </p>
+    </div>
+    </body>
+</html>

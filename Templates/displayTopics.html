@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<head>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .center-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .styled-table{
+            margin-top: 10px;
+        }
+        .styled-table th,.styled-table td{
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+
+        }
+        .btn{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+    <body>
+        <h1>Display Available Topics</h1>
+        <div class="center-container">
+            <form action="/displayTopics" method="POST">
+                <label for="user_input">Filter topics by</label>
+                <select name="user_input" id="user_input">
+                    <option value="Song" id="Song">Song</option>
+                    <option value="Book" id="Book">Book</option>
+                    <option value="TV Show" id="TV Show">TV Show</option>
+                </select>
+                <input type="submit" name="submit" id="submit">
+            </form>
+        </div>
+        
+        <div class="center-container">
+            <a href="/dashboard" class="btn btn-primary">Dashboard</a>
+        <table border="1" class="styled-table">
+            <thead>
+                <tr>
+                    <th>Topic ID</th>
+                    <th>Topic Type</th>
+                    <th>Title</th>
+                    <th>Release Date</th>
+                    <th> Artist Name</th>
+                    <th>Genre</th>
+                </tr>
+            </thead>
+           
+                {%for i in df%}
+                <tr>
+                    <td> {{i['topic_id']}}</td>
+                    <td>
+                        {% if i['type'] == 'Book'%}
+                        <i class="fas fa-book"></i>
+                        {% elif i['type']=='TV Show'%}
+                        <i class="fas fa-tv"></i>
+                        {% elif i['type']=='Song'%}
+                        <i class="fas fa-music"></i>
+                        {%endif%}
+                    </td>
+                    <td>{{i['title']}}</td>
+                    <td>{{i['release_date']}}</td>
+                    <td>{{i['artist_name']}}</td>
+                    <td>{{i['genre']}}</td>
+                </tr>
+                {%endfor%}
+     
+        </table>
+        <a href="/addTopic" class="btn btn-primary">Add Topic</a>
+        
+    </div>
+    </body>
+</html>

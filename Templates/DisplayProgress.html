@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <head>
+  
+        <style>
+            h1{
+                text-align: center;
+            }
+      
+            .center-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh; 
+                text-align: center; 
+            }
+
+            .styled-table {
+                margin-top: 20px;
+            }
+
+            .styled-table th, .styled-table td {
+                padding: 8px 12px;
+                border: 1px solid #ddd;
+              
+            }
+
+            .actions {
+                margin-top: 10px;
+            }
+            .btn-styl{
+          
+                border: #ddd;
+                border-radius: 7px;
+                padding: 6px 8px;
+                text-decoration: none;
+                font-size: 15px;
+                transition: background-color 0.3s ease;
+            }
+            .btn-styl:hover{
+                background-color: beige;
+                color: #ddd;
+
+            }
+            .msg{
+                color: green;
+                font-weight: bold;
+            }
+
+    
+       
+        </style>
+    </head>
+    <body>
+      
+        <h1>Progress Tracker</h1> 
+        <div class="center-container">
+            {{error}}
+            <p class="msg">{{msg}}</p>
+     
+        {%if u_p%}
+        <h3>Track your progress on topics you have selected:</h2>
+            <table border="1" class="styled-table" >
+                <thead>
+                    <th>Topic Id</th>
+                    <th>Topic Type</th>
+                    <th>Topic Title</th>
+                    <th>Completed</th>
+                    <th> Not Started</th>
+                    <th>In Progress</th>
+                </thead>
+                <tbody>
+                    {% for i in u_p %}
+                        <tr>
+                            <td>{{i.Progress.topic_id}}</td>
+                            <td>{{i.Topics.type}}</td>
+                            <td>{{i.Topics.title}}</td>
+                            <td>{{i.Progress.completed}}</td>
+                            <td>{{i.Progress.not_started}}</td>
+                            <td>{{i.Progress.in_progress}}</td>
+                     
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {%endif%}
+        <br>
+        <br>
+        <div class="actions">
+
+        <p>Wanna add topic to track?</p>
+        <button class="btn-styl"><a href="/addTopic">Add Topic</a></button>
+        <br>
+        <br>
+        <p>Wanna update progress?</p>
+        <button class="btn-styl"><a href="/updateProgress">Update progress</a></button>
+        <br>
+       
+    </div>
+    <br>
+    <a href="/dashboard" class="btn btn-primary"> Return to Dashboard</a>
+    </div>
+
+    </body>
+</html>
+

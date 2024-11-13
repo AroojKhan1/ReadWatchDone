@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <head>
+        <style>
+            .center-container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 100vh;
+                text-align: center;
+            }
+            .styled-table{
+                margin-top: 20px;
+            }
+            .styled-table th, .styled-table td{
+                padding: 8px 12px ;
+                border: 1px solid #ddd;
+            }
+            .err{
+                color: red;
+                font-weight: bold
+            }
+            .msg{
+                color: green;
+                font-weight: bold
+            }
+            
+            .btn{
+                padding: 4px 6px;
+            }
+
+      
+        </style>
+    </head>
+    <body>
+        
+        <div class="center-container">
+
+        <h1>Update Progress Tracker</h1> 
+
+        {%if u_p%}
+            <table border="1" class="styled-table">
+                <thead>
+                    <th>Topic Id</th>
+                    <th>Topic Type</th>
+                    <th>Topic Title</th>
+                    <th>Completed</th>
+                    <th> Not Started</th>
+                    <th>In Progress</th>
+                </thead>
+                <tbody>
+                    {% for i in u_p %}
+                        <tr>
+                            <td>{{i.Progress.topic_id}}</td>
+                            <td>{{i.Topics.type}}</td>
+                            <td>{{i.Topics.title}}</td>
+                            <td>{{i.Progress.completed}}</td>
+
+                            <td>
+                                {{i.Progress.not_started}}
+
+                            </td>
+                            <td>{{i.Progress.in_progress}}</td>
+                     
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {%endif%}
+        <br>
+        <br>
+
+        <form action="/updateProgress" method="POST"> 
+            <label for="topic_id">Which topic would you like to update? Please enter topic id:</label>
+            <input type="number" id="topic_id" name="topic_id" required>
+            <br>
+            <label for="completed">Did you complete it?</label>
+            <select name="completed" id="completed">
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+        
+            <br>
+            <label for="not_started">Is this topic still not started?</label>
+            <select name="not_started" id="not_started">
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+            <br>
+            <label for="in_progress">Is it in progress?</label>
+            <select name="in_progress" id="in_progress">
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select>
+   
+            <br>
+            <input type="submit" value="Update">
+        </form>
+        <p class = "err">{{error}} </p>
+        {%if success%}
+            <p class = "msg">{{success}} </p>
+        {%endif%}
+        <a href="/addTopic" class="btn btn-primary">Add Topic</a>
+        <br>
+        <a href="/dashboard" class="btn btn-primary"> Return to Dashboard</a>
+
+
+    </div>
+
+
+    <a href="/dashboard">Return to Dashboard</a>
+    </body>
+</html>
+

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<head>
+    <style>
+    .card{
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    .card-body{
+        text-align: center;
+    }
+    h1{
+        text-align: center;
+    }
+    .card-title{
+        font-weight: bold;
+    }
+    .card .btn{
+        margin-top: 10px;
+   
+    }
+    .container{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    </style>
+</head>
+<body>
+    
+
+    <h1>Welcome to dashboard {{user.name}}!</h1>
+    <br>
+    <br>
+    <br>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Display Topics</h5>
+                        <p>View all topics available in our Database. We got songs, movies and books!</p>
+                        <a href="/displayTopics" class="btn btn-primary"> Topics</a>
+                    </div>
+                </div>
+            </div>
+          
+            
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Add Topics</h5>
+                        <p>Wish to finish a new book, show, or song? Add to track its progress!</p>
+                        <a href="/addTopic" class = "btn btn-primary">Add</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Display Progress</h5>
+                        <p>Track your progress for different books, songs or shows</p>
+                        <a href="/displayProgress" class="btn btn-primary"> Progress </a>
+                    </div>    
+                </div>
+            </div>
+
+                <div class="col-md-4 mb-4 d-flex justify-content-center">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title"> Update Progress</h5>
+                            <p>Finished that show that you were watching? Update now </p>
+                            <a href="/updateProgress" class="btn btn-primary">Update</a>
+                        </div>
+                    </div>
+                </div>
+
+  
+
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title"> View Users</h5>
+                        <p>View all user info. Warning this is for admins only!</p>
+                        <a href="/editUser" class="btn btn-primary" > View </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-4 mb-4 d-flex justify-content-center">
+                <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title"> Logout</h5>
+                    <p>Done tracking? Keep your data safe by logging out!</p>
+                    <a href="{{url_for('logout')}}" class="btn btn-primary"> Logout</a>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+
+
+    </body>
+</html>
