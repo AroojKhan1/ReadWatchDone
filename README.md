@@ -1,7 +1,3 @@
-# Python-PEP-Progress-Tracker
-!["Project Description part 1"](https://jump-december-python-materials.s3.amazonaws.com/PythonPEP-1.png)
-!["Project Description part 2"](https://jump-december-python-materials.s3.amazonaws.com/PythonPEP-2.png)
-
 
 <!-- before starting
 get db set up using the files provided
@@ -14,7 +10,7 @@ grade web version only -->
 
 
 Project Overview
-This project is a Progress Tracker that allows users to keep track of their progress on different topics, including books, movies, and songs. The application has both a terminal-based version and a web version built using Flask, with MySQL as the database backend.
+This is a Progress Tracker that allows users to keep track of their progress on different topics, including books, movies, and songs. The application has both a terminal-based version and a web version built using Flask, with MySQL as the database backend.
 
 
 Setup Instructions
